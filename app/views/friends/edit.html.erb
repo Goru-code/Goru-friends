@@ -1,0 +1,17 @@
+<% content_for :title, "Editing friend" %>
+
+<div class="container my-4">
+  <h1 class="text-center">Editing a Friend</h1>
+
+  <%= render "form", friend: @friend %>
+
+  <br>
+
+  <div class="text-center">
+    <%= link_to "Show this friend", @friend, class: "btn btn-outline-primary mx-2" %> 
+    <%= button_to "Destroy this friend", @friend, method: :delete, data: { confirm: "Are you sure you want to delete this friend?" }, class: "btn btn-outline-danger mt-2"%><br>
+    <%= link_to "Back to friends", friends_path, class: "btn btn-outline-secondary mx-2" %> 
+    <%= link_to "Back to home", root_path, class: "btn btn-outline-secondary mx-2" %>
+  </div>
+</div>
+

@@ -1,0 +1,101 @@
+<% if user_signed_in? %>
+  <% content_for :title, "Friends" %>
+
+  <h1 class="text-center my-4 animated-title">Friends List</h1>
+  
+  <div id="friends" class="container">
+    <div class="row">
+      <% @friends.each do |friend| %>
+        <div class="col-md-4 mb-4">
+          <div class="card card-hover">
+            <div class="card-body">
+              <p><strong>Name: </strong><%= link_to "#{friend.first_name} #{friend.last_name}", friend, class: "friend-name text-black text-decoration-none" %></p>
+              <p><strong>Adder by: User no. </strong><%= link_to " #{friend.user_id}", friend, class: "friend-id text-black text-decoration-none" %></p>
+              <p><strong>Contact: </strong><%= link_to "#{friend.phone}", friend, class: "friend-phone text-black text-decoration-none" %></p>
+              
+              <p>
+                <%= link_to "View Full Details", friend, class: "btn btn-outline-info" %>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="text-center my-4">
+    <%= link_to "New Friend", new_friend_path, class: "btn btn-outline-light" %>
+  </div>
+
+<% end %>
+
+<style>
+  body {
+    background-color: #f8f9fa; /* Light background color */
+    font-family: 'Arial', sans-serif;
+  }
+
+  .animated-title {
+    font-size: 3.5rem; /* Larger font size */
+    color: black; /* Bootstrap primary color */
+    font-weight: bold; /* Make the font bold */
+    letter-spacing: 2px; /* Increase letter spacing for a more refined look */
+    /*animation: fadeIn 1s ease-in-out; /* Faster fade-in animation */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-hover {
+    transition: transform 0.3s;
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+  }
+
+  .card-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-outline-light {
+    background-color: #ffffff; /* White background for button */
+    border-color: #007bff;
+    color: #007bff;
+  }
+
+  .btn-outline-light:hover {
+    background-color: #007bff; /* Bootstrap primary color on hover */
+    color: white;
+  }
+
+  /* Unique animations for buttons */
+  .btn {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transition: all 1s;
+    z-index: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  .btn:hover:before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .btn:hover {
+    color: white; /* Change text color on hover */
+  }
+</style>

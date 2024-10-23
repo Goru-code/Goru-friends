@@ -1,0 +1,32 @@
+<!-- Add Bootstrap and Animate.css links -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10">
+      <div class="card shadow border-0 rounded position-relative overflow-hidden">
+        <div class="card-body p-5 text-center animate__animated animate__fadeIn">
+          <h1 class="display-4 text-primary mb-4 animate__animated animate__zoomIn">About Us</h1>
+          <p class="lead text-muted mb-4 animate__animated animate__fadeIn animate__delay-0.5s">
+           <strong>Goru friend</strong> is a platform where you can store and share information about your friends. We believe that friendship is a powerful force that can help us achieve our goals. <strong>Siddhartha Dhakal (creator)</strong> is a dedicated and passionate learning software engineer who is willing to work on various projects across various industries.
+          </p>
+          <p class="lead text-muted mb-4 animate__animated animate__fadeIn animate__delay-1s">
+            I am passionate about creating innovative solutions to help you achieve your goals.
+          </p>
+          <p class="h5 text-danger fw-bold mb-4 animate__animated animate__fadeIn animate__delay-1.5s">
+            Goru friend is my first app with proper backend and security.
+          </p>
+          <%= link_to "Make Friends", friends_path, class: "btn btn-success btn-lg mt-4 animate__animated animate__pulse" %>
+        </div>
+        <!-- Background Decoration -->
+        <div class="position-absolute top-0 start-50 translate-middle-x" style="width: 200%; height: 200%; background: rgba(0, 123, 255, 0.1); border-radius: 50%; z-index: -1;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add this script at the bottom of your layout file to ensure Bootstrap and jQuery functionality -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

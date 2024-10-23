@@ -1,0 +1,19 @@
+<% content_for :title, "New friend" %>
+
+<div class="container my-5">
+  <h1 class="text-center mb-4">Add Friend</h1>
+
+  <div class="card shadow-lg animate__animated animate__fadeIn">
+    <div class="card-body">
+      <%= render "form", friend: @friend %>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <%= link_to "Back to friends", friends_path, class: "btn btn-secondary mx-2 animate__animated animate__pulse" %> 
+    <%= link_to "Back to home", root_path, class: "btn btn-secondary mx-2 animate__animated animate__pulse" %>
+  </div>
+</div>
+
+<!-- Include Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">

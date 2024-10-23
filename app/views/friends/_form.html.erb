@@ -1,0 +1,52 @@
+<%= form_with(model: friend) do |form| %>
+  <% if flash[:notice] %>
+    <div class="alert alert-success">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <% if friend.errors.any? %>
+    <div class="alert alert-danger">
+      <h4 class="alert-heading"><%= pluralize(friend.errors.count, "error") %> prohibited this friend from being saved:</h4>
+      <ul>
+        <% friend.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :first_name, class: "form-label" %>
+    <%= form.text_field :first_name, class: "form-control", placeholder: "First name" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :last_name, class: "form-label" %>
+    <%= form.text_field :last_name, class: "form-control", placeholder: "Last name" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email, class: "form-label" %>
+    <%= form.text_field :email, class: "form-control", placeholder: "example12@example.com" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :phone, class: "form-label" %>
+    <%= form.text_field :phone, class: "form-control", placeholder: "000 0000000000" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :twitter, class: "form-label" %>
+    <%= form.text_field :twitter, class: "form-control", placeholder: "@Goru" %>
+  </div>
+  <div class="form-group">
+    <% form.label :user, id: :friend_user_id,  class: "form-label" %>
+    <%= form.number_field :user_id, class: "form-control", value: current_user.id, type: :hidden %>
+  </div>
+  
+  <br>
+  <div class="form-group text-center">
+    <%= form.submit friend.new_record? ? "Create Friend" : "Update Friend", class: "btn btn-outline-success btn-lg btn-block animate__animated animate__bounce" %>
+  </div>
+<% end %>

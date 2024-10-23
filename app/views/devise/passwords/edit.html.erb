@@ -1,0 +1,74 @@
+<!-- Add Bootstrap and Animate.css links in your layout file -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+      <div class="card shadow-lg border-0 rounded animate__animated animate__fadeInUp">
+        <div class="card-body p-5">
+          <h2 class="text-center text-success mb-4">Change Your Password</h2>
+
+          <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            <%= f.hidden_field :reset_password_token %>
+
+            <div class="form-group">
+              <%= f.label :password, "New Password", class: "form-label text-secondary" %>
+              <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+              <% end %>
+              <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control form-control-lg", placeholder: "Enter new password" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password_confirmation, "Confirm New Password", class: "form-label text-secondary" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control form-control-lg", placeholder: "Confirm new password" %>
+            </div>
+
+            <div class="text-center mt-4">
+              <%= f.submit "Change My Password", class: "btn btn-success btn-lg w-100 animate__animated animate__rubberBand" %>
+            </div>
+          <% end %>
+
+          <div class="text-center mt-4">
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Optional: Add a background design -->
+<style>
+  body {
+    background-image: url('https://source.unsplash.com/1600x900/?abstract,gradient');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+  }
+
+  .form-label {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+
+  .form-control {
+    padding: 15px;
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: #28a745;
+  }
+</style>

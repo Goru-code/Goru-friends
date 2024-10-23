@@ -1,0 +1,18 @@
+<div class="container bg-light p-5 my-5 rounded shadow-lg text-center animate__animated animate__fadeIn">
+  <h1 class="display-4 text-primary mb-4">Welcome to Friends App!</h1>
+  <p class="lead text-secondary mb-4">
+    Welcome! You can store data of your Friends in our website. Also, you can see other users friends.
+  </p>
+  <p class="lead text-secondary mb-4">
+    Feel free to reach out if you have any questions or need assistance!
+  </p>
+  <p class="h4 text-danger fw-bold">Friendship is necessary!</p>
+  <% if user_signed_in? %>
+    <%= link_to "Make Friends", root_path, class: "btn btn-primary btn-lg mt-4 animate__animated animate__pulse animate__infinite" %>
+  <% else %>
+    <%= link_to "Sign-up to use", new_user_registration_path, class: "btn btn-primary btn-lg mt-4 animate__animated animate__pulse animate__infinite" %>
+  <% end %>
+</div>
+
+<!-- Add this CSS link to your layout to include Bootstrap animations -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
