@@ -1,2 +1,2 @@
 # friend goru
-created by siddhartha dhakal
+created by siddhartha dhakal# goru
