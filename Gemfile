@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.2.1", ">= 7.2.1.1"
+gem "rails", "~> 7.2.1"
 gem "webpacker", "~> 5.0" # or the version compatible with your Rails version
 # Gemfile
 gem "jquery-rails"
